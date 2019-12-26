@@ -22,8 +22,10 @@ module.exports={
     },
     resolve:{
         root:__dirname,
+        
         alias:{
-              applicationStyles:'app/styles/app.css' 
+              applicationStyles:'app/styles/app.css' ,
+              TodoApp:'app/components/TodoApp.jsx'
         },
         extensions:['','.js','.jsx']
     },
