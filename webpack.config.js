@@ -25,7 +25,9 @@ module.exports={
         
         alias:{
               applicationStyles:'app/styles/app.css' ,
-              TodoApp:'app/components/TodoApp.jsx'
+              TodoApp:'app/components/TodoApp.jsx',
+              Todo:'app/components/Todo.jsx',
+              TodoList:'app/components/Todolist.jsx'
         },
         extensions:['','.js','.jsx']
     },
