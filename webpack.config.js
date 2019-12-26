@@ -27,7 +27,8 @@ module.exports={
               applicationStyles:'app/styles/app.css' ,
               TodoApp:'app/components/TodoApp.jsx',
               Todo:'app/components/Todo.jsx',
-              TodoList:'app/components/Todolist.jsx'
+              TodoList:'app/components/Todolist.jsx',
+              Todoform:'app/components/Todoform.jsx'
         },
         extensions:['','.js','.jsx']
     },
