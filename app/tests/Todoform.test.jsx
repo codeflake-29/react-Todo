@@ -16,7 +16,8 @@ describe('Todoform',()=>{
         const todoform=TestUtils.renderIntoDocument(<Todoform AddTodo={spy}/>)
         const $el=$(ReactDOM.findDOMNode(todoform))
         todoform.refs.texts.value='check'
-        TestUtils.Simulate.submit($el.find('form')[0])
+        const input=$el.find('input[type="form"]')
+        TestUtils.Simulate.submit(input[0])
         expect(spy).toHaveBeenCalledWith('check')
     })
 })

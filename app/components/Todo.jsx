@@ -1,11 +1,19 @@
 const React=require('react')
 
 const Todo=React.createClass({
+    onclick:function(){
+        const id=this.props.id
+        this.props.onToggle(id)
+    },
     render:function(){
-        const{text,id}=this.props
+        const{text,completed}=this.props
         return(
+            // <div onClick={()=>{
+            //     this.props.onToggle(id)
+            // }}>
             <div>
-               {id}. {text}
+                <input type="checkbox" checked={completed} onClick={this.onclick}/>
+                {text}
                 
             </div>
         )
