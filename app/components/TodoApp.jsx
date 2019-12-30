@@ -1,5 +1,6 @@
 const React=require('react')
 const uuid=require('node-uuid')
+const moment=require('moment')
 
 const TodoList=require('TodoList')
 const Todoform=require('Todoform')
@@ -25,7 +26,9 @@ const TodoApp=React.createClass({
                 {
                     id:uuid(),
                     text:text,
-                    completed:false
+                    completed:false,
+                    createdAt:moment().unix(),
+                    completedAt:undefined
                 }
             ]
         })
@@ -34,6 +37,7 @@ const TodoApp=React.createClass({
         const updatedTodos=this.state.todos.map( (todo)=>{
             if(todo.id===id){
                 todo.completed=!todo.completed
+                todo.completedAt=todo.completed ? moment().unix() : undefined
             }
             return todo
         })
@@ -46,11 +50,12 @@ const TodoApp=React.createClass({
         })
     },
     render:function(){
-        const {todos}=this.state
+        const {todos,showCompleted,searchText}=this.state
+        var filteredTodos=TodoAPI.filterTodos(todos,showCompleted,searchText)
         return(
             <div>
                 <TodoSearch onSearch={this.handleSearch}/>
-                <TodoList todos={todos} onToggle={this.handleToggle}/>
+                <TodoList todos={filteredTodos} onToggle={this.handleToggle}/>
                 <Todoform AddTodo={this.handleAddTodo}/>
             </div>
         )
