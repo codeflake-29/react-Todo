@@ -1,0 +1,87 @@
+.page-title{
+    text-align: center;
+    padding: 2rem 0;
+    margin: 0;
+
+}
+.container{
+    background-color: lightgrey;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+.container_header{
+border-bottom: 1px solid lightgrey;
+padding: 1rem;
+
+}
+label{
+    cursor: crosshair;
+    font-size: 1rem;
+}
+.container_header :last-child{
+    
+    align-items: center;
+}
+.container-footer{
+    border-top: 1px solid blue;
+padding: 1rem 1rem 0 1rem;
+
+}
+.container__message{
+    color: lime;
+    margin: 2rem auto;
+    text-align: center;
+}
+.todo{
+    display: flex;
+    cursor: crosshair;
+    align-items: center;
+    padding: 1rem;
+    transition: background .3s ease;
+}
+p{
+    margin: 0;
+}
+input{
+    margin: 0;
+}
+.todo :first-child{
+    margin-right: 1rem;
+}
+.todo:hover{
+    background: blue;
+}
+.todo__subtext{
+    color:red;
+
+}
+.todo-completed .todo__subtext{
+        text-decoration: line-through;
+    
+}
+
+.todo-completed p{
+    text-decoration: line-through;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

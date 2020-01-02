@@ -15,11 +15,13 @@ const Todoform=React.createClass({
 
     render:function(){
         return(
-        <form  onSubmit={this.onSubmit}  >
-            <input type="text" ref="texts" placeholder="enter texts"/>
-            <button className="button expanded">SUBMIT</button>
+       <div className="container-footer">
+            <form  onSubmit={this.onSubmit}  >
+                 <input type="text" ref="texts" placeholder="enter texts"/>
+                <button className="button expanded">SUBMIT</button>
 
-        </form>
+            </form>
+       </div>
         )
     }
 })

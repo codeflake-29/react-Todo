@@ -25833,9 +25833,26 @@
 	        return React.createElement(
 	            'div',
 	            null,
-	            React.createElement(TodoSearch, { onSearch: this.handleSearch }),
-	            React.createElement(TodoList, { todos: filteredTodos, onToggle: this.handleToggle }),
-	            React.createElement(Todoform, { AddTodo: this.handleAddTodo })
+	            React.createElement(
+	                'h1',
+	                { className: 'page-title' },
+	                'Todo App'
+	            ),
+	            React.createElement(
+	                'div',
+	                { className: 'row' },
+	                React.createElement(
+	                    'div',
+	                    { className: 'column small-centered small-11 medium-6 large-5' },
+	                    React.createElement(
+	                        'div',
+	                        { className: 'container' },
+	                        React.createElement(TodoSearch, { onSearch: this.handleSearch }),
+	                        React.createElement(TodoList, { todos: filteredTodos, onToggle: this.handleToggle }),
+	                        React.createElement(Todoform, { AddTodo: this.handleAddTodo })
+	                    )
+	                )
+	            )
 	        );
 	    }
 
@@ -43290,6 +43307,13 @@
 	        var todos = this.props.todos;
 
 	        var renderTodos = function renderTodos() {
+	            if (todos.length === 0) {
+	                return React.createElement(
+	                    'p',
+	                    { className: 'container__message' },
+	                    'Nothing to do'
+	                );
+	            }
 	            return todos.map(function (todo) {
 	                return React.createElement(Todo, _extends({ key: todo.id }, todo, { onToggle: _this.props.onToggle }));
 	            });
@@ -43338,23 +43362,32 @@
 	            text = _props.text,
 	            completed = _props.completed;
 
+	        var todoClassName = completed ? 'todo todo-completed' : 'todo';
 	        return (
 	            // <div onClick={()=>{
 	            //     this.props.onToggle(id)
 	            // }}>
 	            React.createElement(
 	                'div',
-	                null,
-	                React.createElement('input', { type: 'checkbox', checked: completed, onClick: this.onclick }),
+	                { className: todoClassName },
 	                React.createElement(
-	                    'p',
+	                    'div',
 	                    null,
-	                    text
+	                    React.createElement('input', { type: 'checkbox', checked: completed, onClick: this.onclick })
 	                ),
 	                React.createElement(
-	                    'p',
+	                    'div',
 	                    null,
-	                    this.renderDate()
+	                    React.createElement(
+	                        'p',
+	                        null,
+	                        text
+	                    ),
+	                    React.createElement(
+	                        'p',
+	                        { className: 'todo__subtext' },
+	                        this.renderDate()
+	                    )
 	                )
 	            )
 	        );
@@ -43386,13 +43419,17 @@
 
 	    render: function render() {
 	        return React.createElement(
-	            'form',
-	            { onSubmit: this.onSubmit },
-	            React.createElement('input', { type: 'text', ref: 'texts', placeholder: 'enter texts' }),
+	            'div',
+	            { className: 'container-footer' },
 	            React.createElement(
-	                'button',
-	                { className: 'button expanded' },
-	                'SUBMIT'
+	                'form',
+	                { onSubmit: this.onSubmit },
+	                React.createElement('input', { type: 'text', ref: 'texts', placeholder: 'enter texts' }),
+	                React.createElement(
+	                    'button',
+	                    { className: 'button expanded' },
+	                    'SUBMIT'
+	                )
 	            )
 	        );
 	    }
@@ -43419,7 +43456,7 @@
 	    render: function render() {
 	        return React.createElement(
 	            "div",
-	            null,
+	            { className: "container_header" },
 	            React.createElement(
 	                "div",
 	                null,
@@ -43884,7 +43921,7 @@
 
 
 	// module
-	exports.push([module.id, "", ""]);
+	exports.push([module.id, ".page-title{\n    text-align: center;\n    padding: 2rem 0;\n    margin: 0;\n\n}\n.container{\n    background-color: lightgrey;\n    border: 1px solid #eeeeee;\n    border-radius: 5px;\n    padding: 0;\n    margin-bottom: 2rem;\n}\n.container_header{\nborder-bottom: 1px solid lightgrey;\npadding: 1rem;\n\n}\nlabel{\n    cursor: crosshair;\n    font-size: 1rem;\n}\n.container_header :last-child{\n    \n    align-items: center;\n}\n.container-footer{\n    border-top: 1px solid blue;\npadding: 1rem 1rem 0 1rem;\n\n}\n.container__message{\n    color: lime;\n    margin: 2rem auto;\n    text-align: center;\n}\n.todo{\n    display: flex;\n    cursor: crosshair;\n    align-items: center;\n    padding: 1rem;\n    transition: background .3s ease;\n}\np{\n    margin: 0;\n}\ninput{\n    margin: 0;\n}\n.todo :first-child{\n    margin-right: 1rem;\n}\n.todo:hover{\n    background: blue;\n}\n.todo__subtext{\n    color:red;\n\n}\n.todo-completed .todo__subtext{\n        text-decoration: line-through;\n    \n}\n\n.todo-completed p{\n    text-decoration: line-through;\n\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 	// exports
 
